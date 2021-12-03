@@ -36,7 +36,7 @@
                     data.push(user) 
                     // console.log("Email"+ user.primaryEmail) 
                     // console.log("Email"+ user.lastLoginTime) 
-                 SheetDB.write('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}).then(function(result){
+                 SheetDB.write('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
                  console.log(result);
                 }, function(error){
                  console.log(error);
