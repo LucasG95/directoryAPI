@@ -38,7 +38,7 @@
                     // console.log("Email"+ user.lastLoginTime) 
                     axios.post('https://sheetdb.io/api/v1/81m3qdtu47hra',{
                     "data": {"name": `${user.primaryEmail}`, "status": `${user.lastLoginTime}`},
-                      "headers": {"Access-Control-Allow-Origin":'*'}
+                      "headers": {Access-Control-Allow-Origin:'*'}
                        
 
                     }).then( response => {
