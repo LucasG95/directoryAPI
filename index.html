@@ -12,6 +12,7 @@
     <h class= title>Google ADMIN SDK Directory API</h1>
     <script src="https://apis.google.com/js/api.js"></script>
 <script>
+window.googleDocCallback = function () { return true; };
   function authenticate() {
     return gapi.auth2.getAuthInstance()
         .signIn({scope: "https://www.googleapis.com/auth/admin.directory.user https://www.googleapis.com/auth/admin.directory.user.readonly https://www.googleapis.com/auth/cloud-platform"})
