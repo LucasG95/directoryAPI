@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <title>ADMIN SDK API Call Test</title>
+  </head>
+  <body>
+    <h class= title>Google ADMIN SDK Directory API</h1>
+    <script src="https://apis.google.com/js/api.js"></script>
+<script>
+  function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/admin.directory.user https://www.googleapis.com/auth/admin.directory.user.readonly https://www.googleapis.com/auth/cloud-platform"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyC3JyedrnqCsRzzBPiDHTrzsNdS1ezziaU");
+    return gapi.client.load("https://admin.googleapis.com/$discovery/rest?version=directory_v1")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  function execute() {
+
+    return gapi.client.directory.users.list({"domain": "carupi.com", "maxResults": 450})
+        .then(function(response) {
+            let t = document.querySelector("#tabela") 
+           let data = []    
+            console.log(response)
+                response.result.users.forEach((user)=> {
+                   
+                    data.push(user) 
+                    // console.log("Email"+ user.primaryEmail) 
+                    // console.log("Email"+ user.lastLoginTime) 
+                    axios.post('https://sheetdb.io/api/v1/81m3qdtu47hra',{
+                    "data": {"name": `${user.primaryEmail}`, "status": `${user.lastLoginTime}`}
+                    }).then( response => {
+                    console.log(response.data);
+    });
+                })
+                console.log(data)
+                let td = data.reduce((acc, user)=>{
+                  acc += `<tr>E-mail do usuário:  ${user.primaryEmail}</tr>
+                  <tr>Data do último login:  ${user.lastLoginTime}</tr>`
+                  return acc
+              },"")
+              t.innerHTML = td
+              console.log("O result é:", td)
+              },
+              function(err) { console.error("Execute error", err); });
+              
+  }
+
+
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "294303033871-hddnl7r6bc1uim8kgf49fbkviispg2dn.apps.googleusercontent.com"});
+  });
+
+</script>
+<button onclick="authenticate().then(loadClient)">Authorize and load</button>
+<button onclick="execute()">execute</button>
+<table id=resultado class=table>
+
+    <thead>
+      
+
+</thead>
+<tbody id=tabela class=tab>
+
+</tbody>
+</table>
+</tr>
+
+
+</body>
+
+</html>
