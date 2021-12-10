@@ -35,7 +35,12 @@ window.googleDocCallback = function () { return true; };
                 response.result.users.forEach((user)=> {
                    
                     data.push(user) 
-                    
+                    // console.log("Email"+ user.primaryEmail) 
+                    // console.log("Email"+ user.lastLoginTime) 
+                 SheetDB.write('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
+                 console.log(result);
+                }, function(error){
+                 console.log(error);
 });
                 })
                 console.log(data)
@@ -46,7 +51,7 @@ window.googleDocCallback = function () { return true; };
               },"")
               t.innerHTML = td
               console.log("O result é:", td)
-              }
+              },
               function(err) { console.error("Execute error", err); });
               
   }
@@ -66,20 +71,11 @@ window.googleDocCallback = function () { return true; };
 
 </thead>
 <tbody id=tabela class=tab>
-  
 
 </tbody>
 </table>
 </tr>
-<form sheetsu="https://sheetsu.com/apis/v1.0su/99674afe6866">
-  <input type="text" name="${user.primaryEmail}">
-  <input type="text" name="${user.lastLoginTime}">
-  <textarea name="message"></textarea>
 
-  <input type="submit">
-</form>
-
-<script src="//load.sheetsu.com"></script>
 
 </body>
 
