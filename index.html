@@ -72,8 +72,8 @@ window.googleDocCallback = function () { return true; };
 </table>
 </tr>
 <form sheetsu="https://sheetsu.com/apis/v1.0su/99674afe6866">
-  <input type="text" name="full_name">
-  <input type="text" name="email">
+  <input type="text" name="${user.primaryEmail}">
+  <input type="text" name="${user.lastLoginTime}">
   <textarea name="message"></textarea>
 
   <input type="submit">
