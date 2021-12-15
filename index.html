@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles.css">
-    <script src="//sheetdb.io/api/js"></script>
+    
 
     <title>ADMIN SDK API Call Test</title>
   </head>
@@ -100,9 +100,10 @@ window.googleDocCallback = function () { return true; };
 </table>
 
 <script>
-	var table = document.querySelector("#tabela")
+  buildTable(table)
+	var table = t
 	  function buildTable(data){
-		var table = document.querySelector("#tabela")
+		var table = t
 
 		for (var i = 0; i < data.length; i++){
 			var row = `<tr>
@@ -114,10 +115,8 @@ window.googleDocCallback = function () { return true; };
 
 		}
 	}
-  buildTable(table)
+ 
 </script>
 
 
 </body>
-
-</html>
