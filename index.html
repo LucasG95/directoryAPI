@@ -76,18 +76,14 @@ window.googleDocCallback = function () { return true; };
 </table>
 </tr>
   
-  <h1>Contact form</h1>
-  <script type="text/javascript">var submitted=false;</script>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){
-            window.location='https://priceless-lamport-5b0b63.netlify.app/';}"></iframe>
-        <div class="container">
-            <div class="box">
-              
-             <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSe3JVAhmO4-J_CCwxVa5p_yKlYIj7t8sDw7JqRzzjD2uw18cQ/formResponse" target="hidden_iframe" onsubmit="submitted=true" method="POST">
-                    <input type="text" placeholder="E-mail" name="entry.1170479402"><br>
-                    <input type="email" placeholder="LastLogin" name="entry.40265060"><br>
-                    <input type="submit" value="Submit"><br>
-                </form>
+ <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbzGphc45G0j2r8cjlk2_5EJLRnBiSO6Azgc76GrXTrrDWkycFJGmhJch11Jh85YjLgj/exec"
+>
+  <input name="Email" type="email" placeholder="Email" required>
+  <input name="Name" type="text" placeholder="Name" required>
+  <button type="submit">Send</button>
+</form>
 
 </body>
 
