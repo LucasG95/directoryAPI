@@ -113,8 +113,8 @@ window.googleDocCallback = function () { return true; };
 
 		for (var i = 0; i < data.length; i++){
 			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].age}</td>
+							<td>${user.primaryEmail}</td>
+							<td>${user.lastLoginTime}</td>
 							<td>${data[i].birthdate}</td>
 					  </tr>`
 			table.innerHTML += row
