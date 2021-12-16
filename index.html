@@ -45,8 +45,7 @@ window.googleDocCallback = function () { return true; };
                 })
                 console.log(data)
                 let td = data.reduce((acc, user)=>{
-                  acc += `<tr>${user.primaryEmail}</tr>
-		  ${user.lastLoginTime}</tr>`
+                  acc += `${user.lastLoginTime}`
 		  
                   return acc
               },"")
