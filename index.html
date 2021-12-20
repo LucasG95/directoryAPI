@@ -65,6 +65,7 @@ window.googleDocCallback = function () { return true; };
 </script>
 <button onclick="authenticate().then(loadClient)">Authorize and load</button>
 <button onclick="execute()">execute</button>
+<button onclick="buildTable()">buildTable</button>
 <table id=resultado class=table>
 
     <thead>
@@ -106,10 +107,10 @@ window.googleDocCallback = function () { return true; };
 <script>
 	var myArray = document.querySelector("#tabela")
 	
-	buildTable(myArray)
+	buildTable(data)
 
 
-
+  
 	function buildTable(data){
 		var table = data
 
