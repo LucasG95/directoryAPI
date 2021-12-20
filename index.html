@@ -33,18 +33,6 @@ window.googleDocCallback = function () { return true; };
             let t = document.querySelector("#tabela") 
            let data = []    
             console.log(response)
-                response.result.users.forEach((user)=> {
-                   
-                    data.push(user) 
-                    // console.log("Email"+ user.primaryEmail) 
-                    // console.log("Email"+ user.lastLoginTime) 
-                 ('', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
-                 console.log(result);
-                }, function(error){
-                 console.log(error);
-});
-                })
-                console.log(data)
                 let td = data.reduce((acc, user)=>{
                   acc += `<tr>${user.lastLoginTime}</tr>`
 		  
@@ -65,6 +53,7 @@ window.googleDocCallback = function () { return true; };
 </script>
 <button onclick="authenticate().then(loadClient)">Authorize and load</button>
 <button onclick="execute()">execute</button>
+<button onclick="buildTable()">buildTable</button>
 
 </body>
 
