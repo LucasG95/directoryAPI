@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles.css">
     <script src="//sheetdb.io/api/js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>ADMIN SDK API Call Test</title>
   </head>
   <body>
@@ -36,7 +35,9 @@ window.googleDocCallback = function () { return true; };
                 response.result.users.forEach((user)=> {
                    
                     data.push(user) 
-                 }).then(function(result){
+                    // console.log("Email"+ user.primaryEmail) 
+                    // console.log("Email"+ user.lastLoginTime) 
+                 SheetDB.write('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
                  console.log(result);
                 }, function(error){
                  console.log(error);
@@ -44,16 +45,16 @@ window.googleDocCallback = function () { return true; };
                 })
                 console.log(data)
                 let td = data.reduce((acc, user)=>{
-                  acc += `<tr>${user.lastLoginTime}</tr>`
-		  
+                  acc += `<tr>E-mail do usuário:  ${user.primaryEmail}</tr>
+                  <tr>Data do último login:  ${user.lastLoginTime}</tr>`
                   return acc
               },"")
               t.innerHTML = td
               console.log("O result é:", td)
-              }
+              },
+              function(err) { console.error("Execute error", err); });
               
-              
-  
+  }
 
 
   gapi.load("client:auth2", function() {
@@ -63,7 +64,66 @@ window.googleDocCallback = function () { return true; };
 </script>
 <button onclick="authenticate().then(loadClient)">Authorize and load</button>
 <button onclick="execute()">execute</button>
-<button onclick="buildTable()">buildTable</button>
+<table id=resultado class=table>
+
+    <thead>
+      
+
+</thead>
+<tbody id=tabela class=tab>
+
+</tbody>
+</table>
+</tr>
+  
+ 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Birthday</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+	var myArray = document.querySelector("#tabela")
+	
+	buildTable(myArray)
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${user.pri}</td>
+							<td>${data[i].age}</td>
+							<td>${data[i].birthdate}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
 
 </body>
 
