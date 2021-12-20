@@ -33,6 +33,16 @@ window.googleDocCallback = function () { return true; };
             let t = document.querySelector("#tabela") 
            let data = []    
             console.log(response)
+                response.result.users.forEach((user)=> {
+                   
+                    data.push(user) 
+                 }).then(function(result){
+                 console.log(result);
+                }, function(error){
+                 console.log(error);
+});
+                })
+                console.log(data)
                 let td = data.reduce((acc, user)=>{
                   acc += `<tr>${user.lastLoginTime}</tr>`
 		  
@@ -40,10 +50,10 @@ window.googleDocCallback = function () { return true; };
               },"")
               t.innerHTML = td
               console.log("O result é:", td)
-              },
-              function(err) { console.error("Execute error", err); });
+              }
               
-  }
+              
+  
 
 
   gapi.load("client:auth2", function() {
