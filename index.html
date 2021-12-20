@@ -11,7 +11,7 @@
   <body>
     <h class= title>Google ADMIN SDK Directory API</h1>
     <script src="https://apis.google.com/js/api.js"></script>
-    <script>
+<script>
 window.googleDocCallback = function () { return true; };
   function authenticate() {
     return gapi.auth2.getAuthInstance()
@@ -37,7 +37,7 @@ window.googleDocCallback = function () { return true; };
                     data.push(user) 
                     // console.log("Email"+ user.primaryEmail) 
                     // console.log("Email"+ user.lastLoginTime) 
-                 SheetDB('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
+                 SheetDB.write('https://sheetdb.io/api/v1/81m3qdtu47hra', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
                  console.log(result);
                 }, function(error){
                  console.log(error);
