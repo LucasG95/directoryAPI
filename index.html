@@ -107,12 +107,12 @@ window.googleDocCallback = function () { return true; };
 <script>
 	var myArray = document.querySelector("#tabela")
 	
-	buildTable(td)
+	buildTable(document.querySelector("#tabela"))
 
 
   
-	function buildTable(data){
-		var table = data
+	function buildTable(t){
+		var table = document.querySelector("#tabela")
 
 		for (var i = 0; i < data.length; i++){
 			var row = `<tr>
