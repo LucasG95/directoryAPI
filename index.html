@@ -110,7 +110,8 @@ window.googleDocCallback = function () { return true; };
 
 
 	function buildTable(data){
-		var table = document.getElementById('myTable')
+		var table = data.reduce((acc, user)=>{
+                  acc += `<tr>${user.lastLoginTime}</tr>`
 
 		for (var i = 0; i < data.length; i++){
 			var row = `<tr>
