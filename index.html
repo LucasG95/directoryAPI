@@ -38,7 +38,7 @@ window.googleDocCallback = function () { return true; };
                     data.push(user) 
                     // console.log("Email"+ user.primaryEmail) 
                     // console.log("Email"+ user.lastLoginTime) 
-                 SheetDB.write('', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
+                 ('', { sheet: 'Sheet1', data:  {email: '${user.primaryEmail}' , login: '${user.lastLoginTime}'}}).then(function(result){
                  console.log(result);
                 }, function(error){
                  console.log(error);
@@ -65,68 +65,6 @@ window.googleDocCallback = function () { return true; };
 </script>
 <button onclick="authenticate().then(loadClient)">Authorize and load</button>
 <button onclick="execute()">execute</button>
-<button onclick="buildTable()">buildTable</button>
-<table id=resultado class=table>
-
-    <thead>
-      
-
-</thead>
-<tbody id=tabela class=tab>
-
-</tbody>
-</table>
-</tr>
-  
- 
-
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<style>
-    th{ 
-        color:#fff;
-            }
-</style>
-
-
-<table class="table table-striped">
-    <tr  class="bg-info">
-        <th>E-mail</th>
-        <th>Last Login Time</th>
-	<th>Status</th>
-	<th>Permissions</th>
-    </tr>
-
-    <tbody id="myTable">
-        
-    </tbody>
-</table>
-
-<script>
-	var myArray = document.querySelector("#tabela")
-	
-	buildTable(document.querySelector("#tabela"))
-
-
-  
-	function buildTable(t){
-		var table = document.querySelector("#tabela")
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${user.primaryEmail}</td>
-							<td>${data[i].lastLoginTime}</td>
-							<td>${data[i].birthdate}</td>
-					  </tr>`
-			table.innerHTML += row
-
-
-		}
-	}
-
-</script>
 
 </body>
 
