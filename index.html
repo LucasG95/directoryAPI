@@ -110,13 +110,12 @@ window.googleDocCallback = function () { return true; };
 
 
 	function buildTable(data){
-		var table = data.reduce((acc, user)=>{
-                  acc += `<tr>${user.lastLoginTime}</tr>`
+		var table = data
 
 		for (var i = 0; i < data.length; i++){
 			var row = `<tr>
 							<td>${user.primaryEmail}</td>
-							<td>${data[i].age}</td>
+							<td>${data[i].lastLoginTime}</td>
 							<td>${data[i].birthdate}</td>
 					  </tr>`
 			table.innerHTML += row
